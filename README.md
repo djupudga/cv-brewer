@@ -1,4 +1,5 @@
-=== cv-brewer
+cv-brewer
+=========
 
 Brew different versions of your CV. Output is pdf.
 
