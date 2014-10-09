@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume</title>
+  <meta charset="utf-8">
+  <style type="text/css">
+    <%= styles %>
+  </style>
+</head>
+<body>
+<header>
+  <h1>Curriculum Vitae</h1>
+</header>
+<address class="personal">
+  <h3><%= personal.name %></h3>
+  <div class="item">
+    <h4>Address</h4>
+    <span><%= personal.address.street %></span>
+    <span><%= personal.address.postal %></span>
+  </div>
+  <div class="item">
+    <h4>Telephone</h4>
+    <span><%= personal.phone %></span>
+  </div>
+  <div class="item">
+    <h4>E-mail</h4>
+    <span><%= personal.email %></span>
+  </div>
+</address>
+<% for (var i = 0; i < sections.length; i++) { %>
+  <h3><%-sections[i].title%></h3>
+  <% 
+  if (sections[i].sections) { 
+    var subSection;
+    for (var j = 0; j < sections[i].sections.length; j++) {
+      subSection = sections[i].sections[j];
+  %>
+  <article class="sub-section">
+    <%= subSection.template(subSection.content) %>
+  </article>
+  <%
+    }
+  %>
+
+  <% } else { %>
+  <article class="section">
+    <%=sections[i].template(sections[i].content)%>
+  </article>
+  <% } %>
+<% } %>
+<section>
+</section>
+</body>
+</html>
